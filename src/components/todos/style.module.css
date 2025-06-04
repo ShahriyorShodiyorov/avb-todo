@@ -68,7 +68,7 @@
 .todo {
     width: 100%;
     margin-top: 20px;
-    background-color: #e6e6e6;
+    background-color: var(--todo-bg);
     padding: 10px 15px;
     display: flex;
     align-items: center;
