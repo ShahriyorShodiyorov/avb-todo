@@ -1,8 +1,9 @@
 'use client';
 
-import { X } from 'lucide-react';
+import { X, Moon, Sun } from 'lucide-react';
 import classes from './style.module.css'
 import { useState } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 export const Todos = () => {
 
@@ -10,13 +11,15 @@ export const Todos = () => {
 
   const [title, setTitle] = useState('')
 
+  const { isDark, toggleTheme } = useTheme();
+
   const onChangeTitle = (e) => {
     setTitle(e.target.value)
   }
 
   const onCompleted = (todo) => {
     const todos = todoList.map(t => {
-      if(t.id !== todo.id){
+      if (t.id !== todo.id) {
         return t
       }
 
@@ -31,7 +34,7 @@ export const Todos = () => {
 
   function addTodo() {
 
-    if(!title){
+    if (!title) {
       alert('Fill title input!')
       return
     }
@@ -47,8 +50,8 @@ export const Todos = () => {
   }
 
   const removeTodo = (todo) => {
-   const filteredTodos = todoList.filter(t => t.id !== todo.id)
-   setTodoList(filteredTodos)
+    const filteredTodos = todoList.filter(t => t.id !== todo.id)
+    setTodoList(filteredTodos)
   }
 
 
@@ -56,6 +59,13 @@ export const Todos = () => {
     <div className={classes.container}>
       <div className={classes.title}>
         <h2>Task list</h2>
+        <button
+          className={classes.themeToggle}
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          {isDark ? < Sun size={24} /> : <Moon size={24} />}
+        </button>
       </div>
       <div className={classes.form}>
         <input

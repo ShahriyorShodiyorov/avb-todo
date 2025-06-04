@@ -6,12 +6,35 @@
 
 .title {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+
+
+.themeToggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.themeToggle:hover {
+    background-color: var(--hover-bg);
+}
+
+
 
 .title h2 {
     font-size: 26px;
     font-weight: 700;
-    color: rgb(28, 26, 26);
+    color: var(--text-primary);
 }
 
 
@@ -27,6 +50,9 @@
     height: 35px;
     outline: none;
     padding: 5px 10px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .form button {
@@ -47,6 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.3s ease;
 }
 
 .todoLabel {
@@ -54,20 +81,23 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    color: var(--text-primary);
 }
 
 .done span {
     text-decoration: line-through;
+    color: var(--completed-color);
 }
 
 .todo input {
     width: 24px;
     height: 24px;
+    accent-color: var(--checkbox-color);
 }
 
 .removeBtn {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #ff6666;
+    color: var(--delete-color);
 }
